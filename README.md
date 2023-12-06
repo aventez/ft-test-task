@@ -18,3 +18,10 @@ hex/onion with parts of DDD.
 - Pagination for duels history and caching a bit
 - Improve the flow of delay stamps as for large scale it cause memory leaks - it is fault of Redis, as every
 delayed message is being on a new entry.
+- Probably I would discuss with the team about repository, as eloquent uses active record pattern and 
+abstraction for data layer can be helpful in terms of separation of concerns, but on the other hand it increases the complexity and time markup over
+whole engineering process.
+- Unit/E2E tests + optionally mutation testing for testing the tests :)
+- Supervisor config and more metrics, retrying failed jobs etc
+- For multiple duals at the same time be probably would have to fight against deadlocks caused by transactional logics,
+so think about isolation level and way of locks management
