@@ -32,34 +32,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('duels', [DuelController::class, 'start']);
     Route::get('duels/active', [DuelController::class, 'active']);
     Route::post('duels/action', [DuelController::class, 'selectCard']);
-
-    //DUELS HISTORY
-    Route::get('duels', function (Request $request) {
-        return [
-            [
-                "id" => 1,
-                "player_name" => "Jan Kowalski",
-                "opponent_name" => "Piotr Nowak",
-                "won" => 0
-            ],
-            [
-                "id" => 2,
-                "player_name" => "Jan Kowalski",
-                "opponent_name" => "Tomasz Kaczyński",
-                "won" => 1
-            ],
-            [
-                "id" => 3,
-                "player_name" => "Jan Kowalski",
-                "opponent_name" => "Agnieszka Tomczak",
-                "won" => 1
-            ],
-            [
-                "id" => 4,
-                "player_name" => "Jan Kowalski",
-                "opponent_name" => "Michał Bladowski",
-                "won" => 1
-            ],
-        ];
-    });
+    Route::get('duels', [DuelController::class, 'list']);
 });

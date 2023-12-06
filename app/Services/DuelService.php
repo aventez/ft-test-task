@@ -19,6 +19,13 @@ class DuelService
         })->where('status', DuelStatus::Active)->first();
     }
 
+    public function getUserDuels(User $user)
+    {
+        return Duel::where('first_user_id', $user->id)
+            ->orWhere('second_user_id', $user->id)
+            ->get();
+    }
+
     public function startDuel(User $user): Duel
     {
         $level = $user->getLevelAttribute();

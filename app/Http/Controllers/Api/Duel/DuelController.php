@@ -72,4 +72,13 @@ class DuelController extends Controller
 
         return new DuelResource($duel);
     }
+
+    public function list(Request $request)
+    {
+        /** @var User $user */
+        $user = $request->user();
+        $duels = $this->duelService->getUserDuels($user);
+
+        return DuelResource::collection($duels);
+    }
 }
