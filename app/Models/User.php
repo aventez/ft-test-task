@@ -20,7 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $email
  * @property string $password
  * @property int $points
- * @property array $cards
+ * @property Collection $cards
  * @property int $available_draws
  * @property Carbon|null $email_verified_at
  * @property string $remember_token

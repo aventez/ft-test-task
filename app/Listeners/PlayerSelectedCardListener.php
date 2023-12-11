@@ -16,7 +16,7 @@ class PlayerSelectedCardListener
     public function handle(PlayerSelectedCard $event): void
     {
         $cards = $event->duel->secondUser->cards;
-        $card = $this->duelOpponentAiService->chooseCard($cards);
+        $card = $this->duelOpponentAiService->chooseCard($cards, $event->duel);
 
         $this->duelService->selectCardForSecondPlayer(
             $event->duel,

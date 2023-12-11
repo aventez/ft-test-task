@@ -38,6 +38,7 @@ use Illuminate\Support\Carbon;
  * @method static \Illuminate\Database\Eloquent\Builder|Duel whereFirstUserPoints($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Duel whereFirstUserSelectedCardId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Duel whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Duel first()
  * @method static \Illuminate\Database\Eloquent\Builder|Duel whereRound($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Duel whereSecondUserId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Duel whereSecondUserPoints($value)
@@ -61,6 +62,10 @@ class Duel extends Model
         'second_user_selected_card_id',
         'second_user_points',
         'won',
+    ];
+
+    protected $attributes = [
+        'already_used_cards' => '[]',
     ];
 
     protected $casts = [

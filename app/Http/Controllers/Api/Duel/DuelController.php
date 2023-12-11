@@ -27,7 +27,7 @@ class DuelController extends Controller
         /** @var User $user */
         $user = $request->user();
         if ($this->duelService->getUserActiveDuel($user)) {
-            //throw new BadRequestHttpException('You have already active duel');
+            throw new BadRequestHttpException('You have already active duel');
         }
 
         $this->duelService->startDuel($user);
@@ -42,7 +42,7 @@ class DuelController extends Controller
         $duel = $this->duelService->getUserActiveDuel($user);
 
         if (!$duel) {
-            throw new BadRequestHttpException('You do not have active duel');
+            throw new NotFoundHttpException('You do not have active duel');
         }
 
         return new DuelResource($duel);
@@ -57,7 +57,7 @@ class DuelController extends Controller
         $user = $request->user();
         $duel = $this->duelService->getUserActiveDuel($user);
         if (!$duel) {
-            throw new BadRequestHttpException('You do not have active duel');
+            throw new NotFoundHttpException('You do not have active duel');
         }
 
         $card = $this->cardService->getCardById($selectedCardId);
